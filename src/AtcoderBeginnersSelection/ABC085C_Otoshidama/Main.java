@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package AtcoderBeginnersSelection.ABC085C_Otoshidama;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,22 @@ public class Main {
     public static void main(String[] args){
         var sc = new FastScanner();
         int n = sc.nextInt();
+        int total = sc.nextInt();
+        int x = -1;
+        int y = -1;
+        int z = -1;
+        for ( int i = 0; i <= n; i++){
+            for (int j = 0; j <= n - i; j++){
+                int k = n - (i + j);
+                if(10000*i + 5000*j + 1000*k == total){
+                    x = i;
+                    y = j;
+                    z = k;
+                    break;
+                }
+            }
+        }
+        System.out.printf("%d %d %d", x, y ,z);
 
     }
 

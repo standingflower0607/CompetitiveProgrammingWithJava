@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package AtcoderBeginnersSelection.ABC086C_Traveling;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,42 @@ public class Main {
     public static void main(String[] args){
         var sc = new FastScanner();
         int n = sc.nextInt();
+        String result = "Yes";
+        int[] tArray = new int[n+1];
+        int[] xArray = new int[n+1];
+        int[] yArray = new int[n+1];
+
+        tArray[0] = 0;
+        xArray[0] = 0;
+        yArray[0] = 0;
+
+        for(int i=1; i<=n; i++){
+            tArray[i] = sc.nextInt();
+            xArray[i] = sc.nextInt();
+            yArray[i] = sc.nextInt();
+        }
+
+
+        for(int j = 1; j <= n ; j++){
+
+            int tDifference = tArray[j] - tArray[j - 1];
+            int yDifference = yArray[j] - yArray[j - 1];
+            int xDifference = xArray[j] - xArray[j - 1];
+
+            // tの偶奇と座標の和x+yは必ず一致する
+            if(tArray[j] % 2 != Math.abs(xArray[j] + yArray[j]) % 2){
+                result = "No";
+                break;
+            }
+            // xとyの移動距離の合計が、移動回数よりも大きければno
+            int absTotal = Math.abs(xDifference) + Math.abs(yDifference);
+            if(absTotal > tDifference){
+                result = "No";
+                break;
+            }
+
+        }
+        System.out.println(result);
 
     }
 

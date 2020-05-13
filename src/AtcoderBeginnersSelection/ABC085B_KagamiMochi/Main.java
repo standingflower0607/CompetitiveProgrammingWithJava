@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package AtcoderBeginnersSelection.ABC085B_KagamiMochi;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,11 @@ public class Main {
     public static void main(String[] args){
         var sc = new FastScanner();
         int n = sc.nextInt();
-
+        var hs = new HashSet<Integer>();
+        for (int i = 0; i < n; i++){
+            hs.add(sc.nextInt());
+        }
+        System.out.println(hs.size());
     }
 
     static class FastScanner {

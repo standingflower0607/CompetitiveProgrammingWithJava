@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package AtcoderBeginnersSelection.ABC049C_hakutyuumu;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         var sc = new FastScanner();
-        int n = sc.nextInt();
+        String s = sc.next();
+        System.out.println(s.matches("^(erase|eraser|dream|dreamer)+$")?"YES":"NO");
 
     }
 
