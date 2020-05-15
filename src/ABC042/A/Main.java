@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC042.A;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,24 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        String result = "YES";
+        int[] array = new int[]{a, b ,c};
+        int total = a + b + c;
+        for (int i : array){
+            if(i == 5 || i == 7){
+                ;
+            }else{
+                result = "NO";
+                break;
+            }
+        }
+        if(total != 17) result ="NO";
+
+        System.out.println(result);
+
 
     }
 

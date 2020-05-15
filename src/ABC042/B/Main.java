@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC042.B;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,14 @@ public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
         int n = sc.nextInt();
+        int l = sc.nextInt();
+        String[] array = new String[n];
+        for (int i = 0; i < n; i++){
+            array[i] = sc.next();
+        }
+        Arrays.sort(array, (x, y) -> x.compareTo(y));
+        String str = String.join("", array);
+        System.out.println(str);
 
     }
 
