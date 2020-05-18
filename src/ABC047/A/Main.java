@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC047.A;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,24 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        String result = "No";
+        int max = 0;
+        max = Math.max(a, b);
+        max = Math.max(max, c);
+
+        if(max == a){
+            if(b + c == max) result = "Yes";
+        }else if(max == b){
+            if(a + c ==max) result ="Yes";
+        }else{
+            if(a + b ==max) result = "Yes";
+        }
+        System.out.println(result);
+
+
     }
 
     static class FastScanner {

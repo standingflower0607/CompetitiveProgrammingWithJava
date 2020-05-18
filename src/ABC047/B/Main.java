@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC047.B;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,69 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
+        int w = sc.nextInt();
+        int h = sc.nextInt();
         int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        int[][] details = new int[n][3];
+        int area = w * h;
+        int whiteArea = 0;
+        int blackArea = 0;
+        int maxX = w;
+        int maxY = h;
+        int minX = 0;
+        int minY = 0;
+
+
+        for(int i=0; i<n; i++){
+            int[] detail = new int[3];
+            detail[0] = sc.nextInt();
+            detail[1] = sc.nextInt();
+            detail[2] = sc.nextInt();
+            details[i] = detail;
+        }
+        for(int[] detail : details){
+            int x = detail[0];
+            int y = detail[1];
+            int a = detail[2];
+            int xDiffrence = maxX - minX;
+            int yDiffrence = maxY - minY;
+            if(a == 1){
+                if(x > minX) {
+                    blackArea += (x - minX)*yDiffrence;
+                    minX = Math.max(x, minX);
+                }
+
+            }else if(a == 2){
+                if(x < maxX) {
+                    blackArea += (maxX - x) * yDiffrence;
+                    maxX = Math.min(x, maxX);
+                }
+
+            }else if(a == 3){
+                if(y > minY) {
+                    blackArea += xDiffrence*(y - minY);
+                    minY = Math.max(y, minY);
+                }
+
+            }else if(a == 4){
+                if(y < maxY) {
+                    blackArea += xDiffrence*(maxY - y);
+                    maxY = Math.min(y, maxY);
+                }
+            }else{
+
+            }
+
+
+            System.out.println(String.format("xDiffrence = %d", xDiffrence));
+            System.out.println(String.format("yDifference = %d", yDiffrence));
+            System.out.println(String.format("blackarea = %d", blackArea));
+
+
+        }
+        whiteArea = area - blackArea;
+        System.out.println(whiteArea);
+
     }
 
     static class FastScanner {
@@ -77,3 +138,4 @@ public class Main {
         public double nextDouble() { return Double.parseDouble(next());}
     }
 }
+

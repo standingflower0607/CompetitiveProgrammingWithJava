@@ -28,7 +28,7 @@ public class Main {
 
         }
         System.out.println(Alice - Bob);
-        
+
     }
 
     static class FastScanner {

@@ -13,17 +13,41 @@ public class Main {
         int counterA = 0;
         int counterB = 0;
         int counterC = 0;
+        Character winner = 'A';
         Character subtractedCharacter = 'a';
-
+        outer:
         while (true) {
 
             switch (subtractedCharacter){
                 case 'a':
-                    subtractedCharacter = A.charAt(0);
+                    if(counterA == A.length()){
+                        winner = 'A';
+                        break outer;
+                    }
+                    subtractedCharacter = A.charAt(counterA);
+                    counterA++;
+                    break;
+                case 'b':
+                    if(counterB == B.length()){
+                        winner = 'B';
+                        break outer;
+                    }
+                    subtractedCharacter = B.charAt(counterB);
+                    counterB++;
+                    break ;
+                case 'c':
+                    if(counterC == C.length()){
+                        winner = 'C';
+                        break outer;
+                    }
+                    subtractedCharacter = C.charAt(counterC);
+                    counterC++;
                     break;
             }
 
+
         }
+        System.out.println(winner);
 
 
 

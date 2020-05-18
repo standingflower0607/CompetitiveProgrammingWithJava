@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC168.C;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        double a = sc.nextInt();
+        double b = sc.nextInt();
+        int h = sc.nextInt();
+        int m = sc.nextInt();
+        double angleH = h * 30 + ( m *0.5);
+        double angleM = m * 6;
+        double angle = Math.abs(angleH - angleM);
+        if(angle > 180) angle = 360 - angle;
+        double cosC = Math.cos(Math.toRadians(angle));
+        double sqrtR = a*a + b*b - 2*a*b*cosC;
+        System.out.println(Math.sqrt(sqrtR));
+
     }
 
     static class FastScanner {

@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC168.D2;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,39 @@ public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
         int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        int m = sc.nextInt();
+        List<Integer> nextToOne = new ArrayList<>();
+        List<ArrayList<Integer>> arrays = new ArrayList<ArrayList<Integer>>();
+        int[] list = new int[m - 1];
+        int[][] array = new int[m][2];
+        for(int i=0; i<m; i++){
+            Integer a = sc.nextInt();
+            Integer b = sc.nextInt();
+            array[i][0] = a;
+            array[i][1] = b;
+            ArrayList<Integer> arr = new ArrayList<>();
+            if(a == 1) {
+                arr.add(b);
+                arrays.add(arr);
+                list[b - 2] = 1;
+                continue;
+            }
+            if(b == 1) {
+                arr.add(a);
+                arrays.add(arr);
+                list[a - 2] = 1;
+                continue;
+            }
+
+
+
+        }
+        for()
+        for(int result : list){
+            System.out.println(result);
+        }
+
+
     }
 
     static class FastScanner {

@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC049.A;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        String charcter = sc.next();
+        List<String> vowels = new ArrayList<>(Arrays.asList("a", "i", "u", "e", "o"));
+        if(vowels.contains(charcter)){
+            System.out.println("vowel");
+        }else{
+            System.out.println("consonant");
+        }
+
     }
 
     static class FastScanner {

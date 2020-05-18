@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC168.A;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,16 @@ public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
         int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        String firstPlaceStr = Integer.toString(n);
+        int firstPlace = Character.getNumericValue(firstPlaceStr.charAt(firstPlaceStr.length() - 1));
+        if( firstPlace == 3){
+            System.out.println("bon");
+        }else if(firstPlace == 0 || firstPlace == 1 || firstPlace == 6 || firstPlace == 8){
+            System.out.println("pon");
+        }else{
+            System.out.println("hon");
+        }
+
     }
 
     static class FastScanner {

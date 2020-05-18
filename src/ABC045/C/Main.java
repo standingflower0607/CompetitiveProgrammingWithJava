@@ -1,14 +1,14 @@
-package OriginalLibrary;
+package ABC045.C;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-
+// 未提出
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        String s = sc.next();
+
     }
 
     static class FastScanner {

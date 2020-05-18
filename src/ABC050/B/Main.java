@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC050.B;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,25 @@ public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
         int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        int[] t = new int[n];
+        for(int i=0; i<n; i++){
+            t[i] = sc.nextInt();
+        }
+        int m = sc.nextInt();
+        for(int j=0; j<m; j++){
+            int[] standardTimes = t.clone();
+            int drinkNum = sc.nextInt();
+            int drinkTime = sc.nextInt();
+            standardTimes[drinkNum - 1] = drinkTime;
+            int result = 0;
+            for(int time : standardTimes){
+                result += time;
+            }
+            System.out.println(result);
+        }
+
+
+
     }
 
     static class FastScanner {

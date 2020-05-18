@@ -1,4 +1,4 @@
-package OriginalLibrary;
+package ABC052.A;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-        System.out.println(8 * Math.pow(7, 9));
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+
     }
 
     static class FastScanner {
