@@ -6,7 +6,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
+        int x = sc.nextInt();
+        if(x >= 1200) System.out.println("ARC");
+        else System.out.println("ABC");
 
     }
 

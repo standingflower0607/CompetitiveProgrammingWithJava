@@ -6,8 +6,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-
+        int N = sc.nextInt();
+        long power = 1;
+        double mod = Math.pow(10, 9) + 7;
+        for(int i=1; i<=N; i++){
+            power *= i;
+            power %= mod;
+        }
+        System.out.println(power);
     }
 
     static class FastScanner {

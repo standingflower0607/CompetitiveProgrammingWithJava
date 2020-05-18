@@ -6,7 +6,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
+        String s = sc.next();
+        int placeOfA = s.indexOf("A");
+        int placeOfZ = s.lastIndexOf("Z");
+        String result = s.substring(placeOfA, placeOfZ + 1);
+        System.out.println(result.length());
 
     }
 

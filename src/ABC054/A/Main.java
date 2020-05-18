@@ -6,8 +6,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        String winner;
+        List<Integer> strengthOrder = new ArrayList<>(Arrays.asList(2,3,4,5,6,7,8,9,10,11,12,13,1));
+        int Alice = strengthOrder.indexOf(A);
+        int Bob = strengthOrder.indexOf(B);
+        if(Alice > Bob) winner = "Alice";
+        else if(Alice == Bob) winner = "Draw";
+        else winner = "Bob";
+        System.out.println(winner);
     }
 
     static class FastScanner {

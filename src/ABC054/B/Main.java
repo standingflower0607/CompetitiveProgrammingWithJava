@@ -1,13 +1,49 @@
 package ABC054.B;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        char[][] pictureA = new char[N][N];
+        char[][] pictureB = new char[M][M];
+        for (int y = 0; y < N; y++) {
+            String str = sc.next();
+            for (int x = 0; x < N; x++) {
+                pictureA[y][x] = str.charAt(x);
+            }
+        }
 
+        for (int y = 0; y < M; y++) {
+            String str = sc.next();
+            for (int x = 0; x < M; x++) {
+                pictureB[y][x] = str.charAt(x);
+            }
+        }
+
+        boolean exist = false;
+
+        // N-M は正方形がN*Nの中にM*Mの正方形が成り立つ範囲
+        for (int ly = 0; ly <= N - M; ly++) {
+            for (int lx = 0; lx <= N - M; lx++) {
+                boolean match = true;
+                for (int y = 0; y < M; y++) {
+                    for (int x = 0; x < M; x++) {
+                        if (pictureA[ly + y][lx + x] != pictureB[y][x]) match = false;
+                    }
+                }
+                if (match) exist = true;
+            }
+        }
+        if (exist) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
     }
 
     static class FastScanner {
@@ -15,10 +51,11 @@ public class Main {
         private final byte[] buffer = new byte[1024];
         private int ptr = 0;
         private int buflen = 0;
+
         private boolean hasNextByte() {
             if (ptr < buflen) {
                 return true;
-            }else{
+            } else {
                 ptr = 0;
                 try {
                     buflen = in.read(buffer);
@@ -31,19 +68,32 @@ public class Main {
             }
             return true;
         }
-        private int readByte() { if (hasNextByte()) return buffer[ptr++]; else return -1;}
-        private static boolean isPrintableChar(int c) { return 33 <= c && c <= 126;}
-        public boolean hasNext() { while(hasNextByte() && !isPrintableChar(buffer[ptr])) ptr++; return hasNextByte();}
+
+        private int readByte() {
+            if (hasNextByte()) return buffer[ptr++];
+            else return -1;
+        }
+
+        private static boolean isPrintableChar(int c) {
+            return 33 <= c && c <= 126;
+        }
+
+        public boolean hasNext() {
+            while (hasNextByte() && !isPrintableChar(buffer[ptr])) ptr++;
+            return hasNextByte();
+        }
+
         public String next() {
             if (!hasNext()) throw new NoSuchElementException();
             StringBuilder sb = new StringBuilder();
             int b = readByte();
-            while(isPrintableChar(b)) {
+            while (isPrintableChar(b)) {
                 sb.appendCodePoint(b);
                 b = readByte();
             }
             return sb.toString();
         }
+
         public long nextLong() {
             if (!hasNext()) throw new NoSuchElementException();
             long n = 0;
@@ -56,23 +106,27 @@ public class Main {
             if (b < '0' || '9' < b) {
                 throw new NumberFormatException();
             }
-            while(true){
+            while (true) {
                 if ('0' <= b && b <= '9') {
                     n *= 10;
                     n += b - '0';
-                }else if(b == -1 || !isPrintableChar(b)){
+                } else if (b == -1 || !isPrintableChar(b)) {
                     return minus ? -n : n;
-                }else{
+                } else {
                     throw new NumberFormatException();
                 }
                 b = readByte();
             }
         }
+
         public int nextInt() {
             long nl = nextLong();
             if (nl < Integer.MIN_VALUE || nl > Integer.MAX_VALUE) throw new NumberFormatException();
             return (int) nl;
         }
-        public double nextDouble() { return Double.parseDouble(next());}
+
+        public double nextDouble() {
+            return Double.parseDouble(next());
+        }
     }
 }
