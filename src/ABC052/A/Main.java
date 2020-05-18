@@ -11,6 +11,10 @@ public class Main {
         int b = sc.nextInt();
         int c = sc.nextInt();
         int d = sc.nextInt();
+        int areaA = a * b;
+        int areaB = c * d;
+        if(areaA >= areaB) System.out.println(areaA);
+        else System.out.println(areaB);
 
     }
 
