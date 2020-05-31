@@ -6,8 +6,15 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
-
+        String O = sc.next();
+        String E = sc.next();
+        StringBuilder builder = new StringBuilder();
+        for(int i=0; i<O.length(); i++){
+            builder.append(O.charAt(i));
+            if(O.length() > E.length() && i == O.length() - 1) break;
+            builder.append(E.charAt(i));
+        }
+        System.out.println(builder.toString());
     }
 
     static class FastScanner {

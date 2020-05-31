@@ -1,3 +1,4 @@
+package AtCoder.ABC.ABC169.A;
 import java.io.*;
 import java.util.*;
 
@@ -6,6 +7,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         FastScanner sc = new FastScanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
+        int A = sc.nextInt();
+        int B =sc.nextInt();
+        out.println(A*B);
 
         out.flush();
 

@@ -1,3 +1,4 @@
+package AtCoder.ABC.ABC176.A;
 import java.io.*;
 import java.util.*;
 

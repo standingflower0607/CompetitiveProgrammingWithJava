@@ -1,13 +1,43 @@
 package AtCoder.ABC.ABC059.B;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args){
         FastScanner sc = new FastScanner();
-        int n = sc.nextInt();
+        // 桁数で比べる
+        /**
+        String A = sc.next();
+        String B = sc.next();
+        String result = "EQUAL";
+        if (A.length() > B.length()) {
+            result = "GREATER";
+        } else if (A.length() < B.length()) {
+            result = "LESS";
+        } else {
+            for (int i = 0; i < A.length(); i++) {
+                int a = Character.getNumericValue(A.charAt(i));
+                int b = Character.getNumericValue(B.charAt(i));
+                if (a < b) {
+                    result = "LESS";
+                    break;
+                } else if (a > b) {
+                    result = "GREATER";
+                    break;
+                }
+            }
 
+        }
+        System.out.println(result);
+         */
+        // BigIntegerを使う
+        BigInteger A = new BigInteger(sc.next());
+        BigInteger B = new BigInteger(sc.next());
+        if(A.compareTo(B) == 1) System.out.println("GREATER");
+        else if(A.compareTo(B) == 0) System.out.println("EQUAL");
+        else System.out.println("LESS");
     }
 
     static class FastScanner {

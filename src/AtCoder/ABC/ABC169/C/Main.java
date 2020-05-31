@@ -1,4 +1,6 @@
+package AtCoder.ABC.ABC169.C;
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Main {
@@ -6,6 +8,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
         FastScanner sc = new FastScanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
+        BigDecimal A = new BigDecimal(sc.next());
+        BigDecimal B =  new BigDecimal(sc.next());
+        long ans = (A.multiply(B)).longValue();
+        out.println(ans);
 
         out.flush();
 

@@ -5,7 +5,7 @@ alphabetA=(A B C D)
 alphabetB=(A B C D E F)
 
 
-for((i=53; i<=167; i++))
+for((i=169; i<=180; i++))
 do
   if [ $i -ge 100 ]
   then
