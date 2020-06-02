@@ -7,100 +7,56 @@ public class Main {
     public static void main(String[] args) throws Exception {
         FastScanner sc = new FastScanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
-        int N = sc.nextInt();
-        int max = N / 2;
-        boolean even = true;
-        out.println(max);
-        if(N%2 == 0){
-            even = true;
-        }else{
-            even = false;
+        long N = sc.nextLong();
+        int ans = 0;
+        List<Pair> array = Factor(N);
+        for(Pair pair: array){
+            int exponent = pair.exponent;
+            int b = 1;
+            while(b <= exponent){
+                exponent -= b;
+                b++;
+                ++ans;
+            }
         }
-
-
-        long[] array = new long[]{};
-        List<Integer> primeNumbers = printPrimeNumbers2(max, even);
-        out.println(primeNumbers);
-
+        out.println(ans);
 
         out.flush();
 
     }
 
-    static List<Integer> printPrimeNumbers2(int maxNumber, boolean even) {
-
-        // ステップ1：「2から上限値までの整数」を探索リストに入れる。
-
-        boolean[] targetNumbers = new boolean[maxNumber + 1];
-        Arrays.fill(targetNumbers, true);
-        targetNumbers[0] = false;
-        targetNumbers[1] = false;
-
-        // 素数リスト
-        List<Integer> primeNumbers = new ArrayList<Integer>();
-
-        int sqrt = (int) Math.sqrt(maxNumber);
-
-        // ステップ3：探索リストの先頭の値が、引数の平方根に達するまでふるい落とし操作を続ける。
-        for(int i=2; i<=sqrt; i++) {
-            // ステップ2：探索リストの先頭の数を素数とし、その倍数を探索リストから篩い落とす。
-            // ※この時、既に篩い落とされた数（false）は除外する。
-            int firstNum = i;
-            if (targetNumbers[i]) {
-                for (int j=i*firstNum; j<targetNumbers.length; j+=firstNum) {
-                    targetNumbers[j] = false;
-                }
+    static List<Pair> Factor(long x){
+        List<Pair> res = new ArrayList<>();
+        for(long i=2; i*i <= x; i++){
+            int exponent = 0;
+            while(x%i == 0){
+                x /= i;
+                exponent++;
             }
+            if(exponent != 0) res.add(new Pair(i, exponent));
         }
-
-
-        // ステップ4：探索リストに残った値を素数リストに移して処理終了。
-        for (int i=2; i<targetNumbers.length; i++) {
-            if (targetNumbers[i] && maxNumber % i == 0) {
-                primeNumbers.add(i);
-            }
-        }
-
-        // 素数の表示
-        return primeNumbers;
+        if(x != 1) res.add(new Pair(x, 1));
+        return res;
     }
 
-    // nまでの素数を返す
-    static List<Integer> printPrimeNumbers2(int maxNumber) {
 
-        // ステップ1：「2から上限値までの整数」を探索リストに入れる。
-        boolean[] targetNumbers = new boolean[maxNumber + 1];
-        Arrays.fill(targetNumbers, true);
-        targetNumbers[0] = false;
-        targetNumbers[1] = false;
+    static class Pair{
+        private long base;
+        private int exponent;
 
-        // 素数リスト
-        List<Integer> primeNumbers = new ArrayList<Integer>();
-
-        int sqrt = (int) Math.sqrt(maxNumber);
-
-        // ステップ3：探索リストの先頭の値が、引数の平方根に達するまでふるい落とし操作を続ける。
-        for(int i=2; i<=sqrt; i++) {
-            // ステップ2：探索リストの先頭の数を素数とし、その倍数を探索リストから篩い落とす。
-            // ※この時、既に篩い落とされた数（false）は除外する。
-            int firstNum = i;
-            if (targetNumbers[i]) {
-                for (int j=i*firstNum; j<targetNumbers.length; j+=firstNum) {
-                    targetNumbers[j] = false;
-                }
-            }
+        public Pair(long base, int exponent){
+            this.base = base;
+            this.exponent = exponent;
         }
 
-        // ステップ4：探索リストに残った値を素数リストに移して処理終了。
-        for (int i=2; i<targetNumbers.length; i++) {
-            if (targetNumbers[i]) {
-                primeNumbers.add(i);
-            }
+        @Override
+        public String toString() {
+            return this.base + " : " + this.exponent;
         }
-
-        // 素数の表示
-        return primeNumbers;
     }
+
+
+
 
     static class FastScanner {
         private BufferedReader reader = null;
