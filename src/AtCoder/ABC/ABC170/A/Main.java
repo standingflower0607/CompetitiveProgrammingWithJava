@@ -7,6 +7,13 @@ public class Main {
     public static void main(String[] args) throws Exception {
         FastScanner sc = new FastScanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
+        int[] N = new int[5];
+        int ans = 0;
+        for(int i=0; i<5; i++) {
+            int n = sc.nextInt();
+            if(n == 0) ans = i + 1;
+        }
+        out.println(ans);
 
         out.flush();
 

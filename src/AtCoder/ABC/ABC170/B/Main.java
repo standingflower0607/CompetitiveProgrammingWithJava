@@ -7,6 +7,15 @@ public class Main {
     public static void main(String[] args) throws Exception {
         FastScanner sc = new FastScanner(System.in);
         PrintWriter out = new PrintWriter(System.out);
+        String ans = "No";
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        for(int i = 0; i <= x; i++){
+            int j = x - i ;
+            if( y == i*2 + j*4) ans = "Yes";
+        }
+        out.println(ans);
 
         out.flush();
 
